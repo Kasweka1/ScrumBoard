@@ -1,0 +1,59 @@
+<!-- scrum_board/templates/scrum_board/user_dashboard.html -->
+{% extends 'board/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ user_name }}!</h2>
+<h3>Your Tasks</h3>
+<!-- {% for task in user_tasks %}
+    <div style="border: 1px solid black;">
+        {{ task.title }} - {{ task.description }} - Status: {{ task.status }}
+        <a href="{% url 'edit_task' task.id %}">Edit Task</a>
+        <a href="{% url 'delete_task' task.id %}">Delete Task</a>
+    </div>
+{% endfor %} -->
+
+<h4>In ToDo</h4>
+{% for task in tasks_todo %}
+      <div>
+          {{ task.title }} - {{ task.description }} - Status: {{ task.status }}
+          <a href="{% url 'edit_task' task.id %}">Edit Task</a>
+          <a href="{% url 'delete_task' task.id %}">Delete Task</a>
+      </div>
+{% endfor %}
+  <hr>
+
+  <h4>In Progress</h4>
+  {% for task in tasks_in_progress %}
+      <div>
+          {{ task.title }} - {{ task.description }} - Status: {{ task.status }}
+          
+          <a href="{% url 'edit_task' task.id %}">Edit Task</a>
+          <a href="{% url 'delete_task' task.id %}">Delete Task</a>
+      </div>
+  {% endfor %}
+  <hr>
+
+  <h4>In Review</h4>
+  {% for task in tasks_in_review %}
+      <div>
+          {{ task.title }} - {{ task.description }} - Status: {{ task.status }}
+         
+          <a href="{% url 'edit_task' task.id %}">Edit Task</a>
+        <a href="{% url 'delete_task' task.id %}">Delete Task</a>
+      </div>
+  {% endfor %}
+  <hr>
+
+  <h4>Completed</h4>
+  {% for task in tasks_completed %}
+      <div>
+          {{ task.title }} - {{ task.description }} - Status: {{ task.status }}
+          <a href="{% url 'edit_task' task.id %}">Edit Task</a>
+        <a href="{% url 'delete_task' task.id %}">Delete Task</a>
+      </div>
+  {% endfor %}
+
+
+{% endblock %}

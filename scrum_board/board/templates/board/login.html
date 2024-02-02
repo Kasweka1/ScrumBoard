@@ -1,0 +1,26 @@
+<!-- scrum_board/templates/scrum_board/login.html-->
+
+
+<!-- {% block content %}
+  <h2>Login</h2>
+  <form method="post" action=" ">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %} -->
+
+<form method="POST">
+    {% csrf_token %}
+    <div >
+        <label  class="form-label">Username: </label>
+        <input type="text" name="username" >
+     </div>
+      <div >
+        <label  class="form-label">Password: </label>
+        <input type="password" name="password"  >
+    </div>
+      <input type="submit"  value="Log In">
+    
+</form>
+

@@ -1,0 +1,40 @@
+<!-- scrum_board/templates/scrum_board/all_users_tasks.html -->
+{% extends 'board/base.html' %}
+{% block title %}All Users{% endblock %}
+
+
+{% block content %}
+<h2>All Users' Tasks</h2>
+  
+  <h4>Todo</h4>
+  {% for task in tasks_todo %}
+      <div>
+          {{ task.title }} - {{ task.description }} - Status: {{ task.status }} - Assigned to: {{ task.assigned_to }}
+      </div>
+  {% endfor %}
+  <hr>
+
+  <h4>In Progress</h4>
+  {% for task in tasks_in_progress %}
+      <div>
+          {{ task.title }} - {{ task.description }} - Status: {{ task.status }} - Assigned to: {{ task.assigned_to }}
+      </div>
+  {% endfor %}
+  <hr>
+
+  <h4>In Review</h4>
+  {% for task in tasks_in_review %}
+      <div>
+          {{ task.title }} - {{ task.description }} - Status: {{ task.status }} - Assigned to: {{ task.assigned_to }}
+      </div>
+  {% endfor %}
+  <hr>
+
+  <h4>Completed</h4>
+  {% for task in tasks_completed %}
+      <div>
+          {{ task.title }} - {{ task.description }} - Status: {{ task.status }} - Assigned to: {{ task.assigned_to }}
+      </div>
+  {% endfor %}
+  <hr>
+{% endblock %}
